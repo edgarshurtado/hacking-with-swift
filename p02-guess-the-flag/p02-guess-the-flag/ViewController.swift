@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     var countries = [String]()
     var score = 0
     var correctAnswer = 0
+    var numberOfGuesses = 0
+    let maxNumberOfGuesses = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,30 +44,50 @@ class ViewController: UIViewController {
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
-        askQuestion()
+        newGame()
     }
     
     func askQuestion(something: UIAlertAction! = nil) {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
-        title = countries[correctAnswer].uppercased()
+        title = "\(countries[correctAnswer].uppercased()). Score: \(score)"
         button1.setImage(UIImage(named: countries[0]), for: .normal)
         button2.setImage(UIImage(named: countries[1]), for: .normal)
         button3.setImage(UIImage(named: countries[2]), for: .normal)
     }
     
+    func newGame(alertAction: UIAlertAction! = nil) {
+        score = 0
+        numberOfGuesses = 0
+        askQuestion()
+    }
+    
+    func showEndGameAlertModal() -> Void {
+        let ac = UIAlertController(title: "Final Score", message: "Yoy obtained a final score of: \(score)", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "New game", style: .default, handler: newGame))
+        present(ac, animated: true)
+    }
+    
     @IBAction func buttonTapped(_ sender: UIButton) {
+        var additionalMessage = ""
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
         } else {
             title = "Wrong"
+            additionalMessage = "That's the flag of \(countries[sender.tag].uppercased())\n"
             score -= 1
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+        numberOfGuesses += 1
+        
+        let ac = UIAlertController(title: title, message: additionalMessage + "Your score is \(score)", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         present(ac, animated: true)
+        
+        if numberOfGuesses == maxNumberOfGuesses {
+            showEndGameAlertModal()
+        }
     }
 }
 

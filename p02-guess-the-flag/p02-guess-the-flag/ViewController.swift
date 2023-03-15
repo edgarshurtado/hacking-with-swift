@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     var score = 0
     var correctAnswer = 0
     var numberOfGuesses = 0
-    let maxNumberOfGuesses = 10
+    let maxNumberOfGuesses = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         askQuestion()
     }
     
-    func showEndGameAlertModal() -> Void {
+    func showEndGameAlertModal(_ action: UIAlertAction) -> Void {
         let ac = UIAlertController(title: "Final Score", message: "Yoy obtained a final score of: \(score)", preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "New game", style: .default, handler: newGame))
         present(ac, animated: true)
@@ -82,12 +82,14 @@ class ViewController: UIViewController {
         numberOfGuesses += 1
         
         let ac = UIAlertController(title: title, message: additionalMessage + "Your score is \(score)", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        present(ac, animated: true)
         
         if numberOfGuesses == maxNumberOfGuesses {
-            showEndGameAlertModal()
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: showEndGameAlertModal))
+        } else {
+            ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         }
+        
+        present(ac, animated: true)
     }
 }
 

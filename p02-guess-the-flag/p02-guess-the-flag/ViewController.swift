@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(showCurrentScore))
         countries += [
             "estonia",
             "france",
@@ -70,6 +71,7 @@ class ViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         var additionalMessage = ""
+        
         if sender.tag == correctAnswer {
             title = "Correct"
             score += 1
@@ -81,7 +83,9 @@ class ViewController: UIViewController {
         
         numberOfGuesses += 1
         
-        let ac = UIAlertController(title: title, message: additionalMessage + "Your score is \(score)", preferredStyle: .alert)
+        let ac = createCurrentScoreAlertController()
+        ac.title = title
+        ac.message = additionalMessage + (ac.message ?? "")
         
         if numberOfGuesses == maxNumberOfGuesses {
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: showEndGameAlertModal))
@@ -89,6 +93,16 @@ class ViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
         }
         
+        present(ac, animated: true)
+    }
+    
+    func createCurrentScoreAlertController() -> UIAlertController {
+        return UIAlertController(title: nil, message: "Your score is \(score)", preferredStyle: .alert)
+    }
+    
+    @objc func showCurrentScore() {
+        let ac = createCurrentScoreAlertController()
+        ac.addAction(UIAlertAction(title: "Close", style: .default))
         present(ac, animated: true)
     }
 }

@@ -69,6 +69,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
                     return
                 }
             }
+            presentAlertNotAllowedURL()
         }
         
         decisionHandler(.cancel)
@@ -78,6 +79,12 @@ class ViewController: UIViewController, WKNavigationDelegate {
         if keyPath == "estimatedProgress" {
             progressView.progress = Float(webView.estimatedProgress)
         }
+    }
+    
+    func presentAlertNotAllowedURL() {
+        let ac = UIAlertController(title: "Not Allowed Url!", message: nil, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
 
 }

@@ -10,24 +10,20 @@ import WebKit
 
 class ViewController: UIViewController, WKNavigationDelegate {
     
-    var webView: WKWebView!
+    @IBOutlet var webView: WKWebView!
     var progressView: UIProgressView!
     var websites = ["apple.com", "hackingwithswift.com"]
     var initialUrl: String?
     
-    override func loadView() {
-        webView = WKWebView()
-        webView.navigationDelegate = self
-        view = webView
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         let url = URL(string: "https://" + (initialUrl ?? websites[0]))!
+        webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
         
+        navigationItem.hidesBackButton = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(title:"Open", style: .plain, target: self, action: #selector(openTapped))
         
         setUpToolbar()

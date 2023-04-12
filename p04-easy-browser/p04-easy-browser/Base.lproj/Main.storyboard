@@ -15,10 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMa-6x-dfu">
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4d7-Ca-5de"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hMa-6x-dfu" firstAttribute="top" secondItem="4d7-Ca-5de" secondAttribute="top" id="77f-AU-f1D"/>
+                            <constraint firstItem="4d7-Ca-5de" firstAttribute="bottom" secondItem="hMa-6x-dfu" secondAttribute="bottom" id="JCz-qw-eXW"/>
+                            <constraint firstItem="hMa-6x-dfu" firstAttribute="leading" secondItem="4d7-Ca-5de" secondAttribute="leading" id="PoA-ja-ixT"/>
+                            <constraint firstItem="4d7-Ca-5de" firstAttribute="trailing" secondItem="hMa-6x-dfu" secondAttribute="trailing" id="kQs-TK-jcb"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ZOj-4X-Ny3"/>
+                    <connections>
+                        <outlet property="webView" destination="hMa-6x-dfu" id="RCm-jg-UBf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

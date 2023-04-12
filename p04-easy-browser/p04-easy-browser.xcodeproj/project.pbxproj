@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83BF797329E3E7FF0044710D /* UrlsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83BF797229E3E7FF0044710D /* UrlsTableViewController.swift */; };
 		83C95BE329D1705600DBA234 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C95BE229D1705600DBA234 /* AppDelegate.swift */; };
 		83C95BE529D1705600DBA234 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C95BE429D1705600DBA234 /* SceneDelegate.swift */; };
 		83C95BE729D1705600DBA234 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C95BE629D1705600DBA234 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		83BF797229E3E7FF0044710D /* UrlsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlsTableViewController.swift; sourceTree = "<group>"; };
 		83C95BDF29D1705600DBA234 /* p04-easy-browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p04-easy-browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83C95BE229D1705600DBA234 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83C95BE429D1705600DBA234 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				83C95BEB29D1705900DBA234 /* Assets.xcassets */,
 				83C95BED29D1705900DBA234 /* LaunchScreen.storyboard */,
 				83C95BF029D1705900DBA234 /* Info.plist */,
+				83BF797229E3E7FF0044710D /* UrlsTableViewController.swift */,
 			);
 			path = "p04-easy-browser";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83C95BE729D1705600DBA234 /* ViewController.swift in Sources */,
+				83BF797329E3E7FF0044710D /* UrlsTableViewController.swift in Sources */,
 				83C95BE329D1705600DBA234 /* AppDelegate.swift in Sources */,
 				83C95BE529D1705600DBA234 /* SceneDelegate.swift in Sources */,
 			);

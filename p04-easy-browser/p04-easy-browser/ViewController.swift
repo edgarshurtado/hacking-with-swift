@@ -13,6 +13,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     var progressView: UIProgressView!
     var websites = ["apple.com", "hackingwithswift.com"]
+    var initialUrl: String?
     
     override func loadView() {
         webView = WKWebView()
@@ -22,7 +23,7 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "https://" + websites[0])!
+        let url = URL(string: "https://" + (initialUrl ?? websites[0]))!
         webView.load(URLRequest(url: url))
         webView.allowsBackForwardNavigationGestures = true
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.estimatedProgress), options: .new, context: nil)
@@ -86,12 +87,20 @@ class ViewController: UIViewController, WKNavigationDelegate {
         
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(webView.goBack))
 
-        let forwardButton = UIBarButtonItem(title: "Forward", style: .plain, target: self, action: #selector(webView.goForward))
+        let forwardButton = UIBarButtonItem(title: "Forward", style: .plain, target: self, action: #selector(goForward))
         let spacer = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: webView, action: #selector(webView.reload))
         
         toolbarItems = [progressButton, spacer, backButton, forwardButton, spacer, refresh]
         navigationController?.isToolbarHidden = false
+    }
+    
+    @objc func goBack() {
+        webView.goBack()
+    }
+    
+    @objc func goForward() {
+        webView.goForward()
     }
 }
 

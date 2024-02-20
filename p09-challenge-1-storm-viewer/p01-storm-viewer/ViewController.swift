@@ -16,16 +16,23 @@ class ViewController: UITableViewController {
         title = "Storm Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(recommendAppTapped))
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        let items = try! fm.contentsOfDirectory(atPath: path)
         
-        for item in items {
-            if item.hasPrefix("nssl") {
-                pictures.append(item)
+        DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 2) {
+            let fm = FileManager.default
+            let path = Bundle.main.resourcePath!
+            let items = try! fm.contentsOfDirectory(atPath: path)
+
+            for item in items {
+                if item.hasPrefix("nssl") {
+                    self.pictures.append(item)
+                }
+            }
+            self.pictures.sort()
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
             }
         }
-        pictures.sort()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,7 +55,7 @@ class ViewController: UITableViewController {
     
     @objc func recommendAppTapped() {
         let vc = UIActivityViewController(activityItems: ["Check out this awesome app"], applicationActivities: [])
-        vc.popoverPresentationController?.sourceItem = navigationItem.leftBarButtonItem
+        vc.popoverPresentationController?.sourceItem = navigationItem.rightBarButtonItem
         present(vc, animated: true)
     }
 

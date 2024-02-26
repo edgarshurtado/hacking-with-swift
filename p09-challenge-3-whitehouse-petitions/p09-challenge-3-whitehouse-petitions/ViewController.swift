@@ -76,8 +76,14 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: "Filter petitions", message: nil, preferredStyle: .alert)
         ac.addTextField()
         let filterAction = UIAlertAction(title: "OK", style: .default) { action in
-            self.filterPetitions(filterText: ac.textFields![0].text)
-            ac.dismiss(animated: true)
+            let textToSearch = ac.textFields![0].text
+            DispatchQueue.global(qos: .background).async {
+                self.filterPetitions(filterText: textToSearch)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    ac.dismiss(animated: true)
+                }
+            }
         }
         ac.addAction(filterAction)
         present(ac, animated: true)
@@ -86,7 +92,6 @@ class ViewController: UITableViewController {
     @objc func filterPetitions(filterText: String?) {
         guard let filterText = filterText else {return}
         filteredPetitions = petitions.filter({$0.title.lowercased().contains(filterText.lowercased())})
-        tableView.reloadData()
     }
     
     // MARK: Table View Methods

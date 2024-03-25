@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
-    
+class ViewController: UICollectionViewController {
+
     var pictures = [String]()
 
     override func viewDidLoad() {
@@ -28,29 +28,33 @@ class ViewController: UITableViewController {
         pictures.sort()
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pictures.count
     }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
-        cell.textLabel?.text = pictures[indexPath.row]
+
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as? PictureCollectionViewCell else {
+            fatalError("Couldn't get collection cell")
+        }
+        cell.fileName?.text = pictures[indexPath.row]
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 1
+
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let detailViewController = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             detailViewController.selectedImage = pictures[indexPath.row]
             detailViewController.title = "Picture \(indexPath.row + 1) of \(pictures.count)"
             navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
-    
+
     @objc func recommendAppTapped() {
         let vc = UIActivityViewController(activityItems: ["Check out this awesome app"], applicationActivities: [])
         vc.popoverPresentationController?.sourceItem = navigationItem.leftBarButtonItem
         present(vc, animated: true)
     }
-
 }
 

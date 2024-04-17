@@ -20,7 +20,7 @@
 /* Begin PBXFileReference section */
 		83BB25452B8DC5570087F110 /* PersonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCell.swift; sourceTree = "<group>"; };
 		83E62DC02B91BA8700F861B7 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
-		83EA34322B8C788700F53D5F /* p11-a.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p11-a.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83EA34322B8C788700F53D5F /* p12-b.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p12-b.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83EA34352B8C788700F53D5F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83EA34372B8C788700F53D5F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		83EA34392B8C788700F53D5F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		83EA34292B8C788700F53D5F = {
 			isa = PBXGroup;
 			children = (
-				83EA34342B8C788700F53D5F /* p11-a */,
+				83EA34342B8C788700F53D5F /* p12-b */,
 				83EA34332B8C788700F53D5F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,12 +52,12 @@
 		83EA34332B8C788700F53D5F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83EA34322B8C788700F53D5F /* p11-a.app */,
+				83EA34322B8C788700F53D5F /* p12-b.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		83EA34342B8C788700F53D5F /* p11-a */ = {
+		83EA34342B8C788700F53D5F /* p12-b */ = {
 			isa = PBXGroup;
 			children = (
 				83E62DC02B91BA8700F861B7 /* Person.swift */,
@@ -70,15 +70,15 @@
 				83EA34402B8C788A00F53D5F /* LaunchScreen.storyboard */,
 				83EA34432B8C788A00F53D5F /* Info.plist */,
 			);
-			path = "p11-a";
+			path = "p12-b";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		83EA34312B8C788700F53D5F /* p11-a */ = {
+		83EA34312B8C788700F53D5F /* p12-b */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83EA34462B8C788A00F53D5F /* Build configuration list for PBXNativeTarget "p11-a" */;
+			buildConfigurationList = 83EA34462B8C788A00F53D5F /* Build configuration list for PBXNativeTarget "p12-b" */;
 			buildPhases = (
 				83EA342E2B8C788700F53D5F /* Sources */,
 				83EA342F2B8C788700F53D5F /* Frameworks */,
@@ -88,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = "p11-a";
+			name = "p12-b";
 			productName = "p10-names-to-faces";
-			productReference = 83EA34322B8C788700F53D5F /* p11-a.app */;
+			productReference = 83EA34322B8C788700F53D5F /* p12-b.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83EA342D2B8C788700F53D5F /* Build configuration list for PBXProject "p11-a" */;
+			buildConfigurationList = 83EA342D2B8C788700F53D5F /* Build configuration list for PBXProject "p12-b" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -121,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				83EA34312B8C788700F53D5F /* p11-a */,
+				83EA34312B8C788700F53D5F /* p12-b */,
 			);
 		};
 /* End PBXProject section */
@@ -302,7 +302,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C2LCB45BH6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "p11-a/Info.plist";
+				INFOPLIST_FILE = "p12-b/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -313,7 +313,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p11-a";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p12-b";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -330,7 +330,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = C2LCB45BH6;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "p11-a/Info.plist";
+				INFOPLIST_FILE = "p12-b/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -341,7 +341,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p11-a";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p12-b";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -352,7 +352,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83EA342D2B8C788700F53D5F /* Build configuration list for PBXProject "p11-a" */ = {
+		83EA342D2B8C788700F53D5F /* Build configuration list for PBXProject "p12-b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83EA34442B8C788A00F53D5F /* Debug */,
@@ -361,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83EA34462B8C788A00F53D5F /* Build configuration list for PBXNativeTarget "p11-a" */ = {
+		83EA34462B8C788A00F53D5F /* Build configuration list for PBXNativeTarget "p12-b" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83EA34472B8C788A00F53D5F /* Debug */,

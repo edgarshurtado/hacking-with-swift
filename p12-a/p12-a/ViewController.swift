@@ -18,7 +18,7 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         let defaults = UserDefaults.standard
 
         if let savedPeople = defaults.object(forKey: "people") as? Data {
-            if let decodedPeople = try? NSKeyedUnarchiver.unarchivedObject(ofClass: Person.self, from: savedPeople) {
+            if let decodedPeople = try? NSKeyedUnarchiver.unarchivedObject(ofClasses: [Person.self], from: savedPeople) as? [Person] {
                 people = decodedPeople
             } else {
                 print("Error")
@@ -123,7 +123,6 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         people.append(Person(name: "Unknown", image: imageName))
         collectionView.reloadData()
 
-        self.save()
         dismiss(animated:true)
     }
 
@@ -132,18 +131,18 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
         return paths[0]
     }
 
-    private func save() {
-        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
-            let defaults = UserDefaults.standard
-            defaults.set(savedData, forKey: "people")
-        }
-    }
-
     @objc func addNewPerson() {
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
         present(picker, animated: true)
+    }
+
+    private func save() {
+        if let savedData = try? NSKeyedArchiver.archivedData(withRootObject: people, requiringSecureCoding: false) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "people")
+        }
     }
 }
 

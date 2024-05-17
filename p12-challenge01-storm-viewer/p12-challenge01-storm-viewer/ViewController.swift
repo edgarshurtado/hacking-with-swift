@@ -40,6 +40,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Picture", for: indexPath)
         cell.textLabel?.text = pictures[indexPath.row]
+        cell.detailTextLabel?.text = "Opened: \(picturesOpenCount[indexPath.row]) times"
         return cell
     }
     
@@ -49,6 +50,7 @@ class ViewController: UITableViewController {
             detailViewController.title = "Picture \(indexPath.row + 1) of \(pictures.count)"
             picturesOpenCount[indexPath.row] += 1
             UserDefaults.standard.set(picturesOpenCount, forKey: "picturesOpenCount")
+            tableView.reloadRows(at: [indexPath], with: .automatic)
             navigationController?.pushViewController(detailViewController, animated: true)
         }
     }

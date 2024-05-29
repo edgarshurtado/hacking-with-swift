@@ -10,12 +10,13 @@ import UIKit
 class ViewController: UITableViewController {
     
     var allWords = [String]()
-    var usedWords = [String]()
+    let defaults: UserDefaults = .standard
+    var game: GameStatus! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promptForAnswer))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New Game", style: .plain, target: self, action: #selector(startGame))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "New Game", style: .plain, target: self, action: #selector(newGame))
         if let startWordsURL = Bundle.main.url(forResource: "start", withExtension: "txt"),
            let startWords = try? String(contentsOf: startWordsURL)
         {
@@ -25,15 +26,37 @@ class ViewController: UITableViewController {
         if allWords.isEmpty {
             allWords = ["silkworm"]
         }
-        startGame()
+
+        loadGame()
     }
 
-    @objc func startGame() {
-        title = allWords.randomElement()
-        usedWords.removeAll(keepingCapacity: true)
+    @objc func newGame() {
+        game = GameStatus(currentWord: allWords.randomElement()!, usedWords: [])
+        title = game.currentWord
         tableView.reloadData()
     }
-    
+
+    func loadGame() {
+        if let savedGame = defaults.object(forKey: "gameStatus") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                game = try jsonDecoder.decode(GameStatus.self, from: savedGame)
+                title = game.currentWord
+            } catch {
+                print("Failed to load game")
+            }
+        } else {
+            newGame()
+        }
+    }
+
+    func saveGame(_ game: GameStatus) {
+        let encoder = JSONEncoder()
+        if let encodedData = try? encoder.encode(game) {
+            defaults.set(encodedData, forKey: "gameStatus")
+        }
+    }
+
     @objc func promptForAnswer() {
         let ac = UIAlertController(title: "Enter answer", message: nil, preferredStyle: .alert)
         ac.addTextField()
@@ -53,10 +76,11 @@ class ViewController: UITableViewController {
         if isPossible(word: lowerAnswer) {
             if isOriginal(word: lowerAnswer) {
                 if isReal(word: lowerAnswer) {
-                    usedWords.insert(answer, at: 0)
-                    
+                    game.usedWords.insert(answer, at: 0)
+
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic)
+                    saveGame(game)
                     return
                 } else {
                     showErrorMessage(
@@ -73,15 +97,15 @@ class ViewController: UITableViewController {
         } else {
             showErrorMessage(
                 errorTitle: "Word not possible",
-                errorMessage: "You can't spell the word \(answer) from \(title!.lowercased())"
+                errorMessage: "You can't spell the word \(answer) from \(game.currentWord.lowercased())"
             )
         }
         
     }
     
     func isPossible(word: String) -> Bool {
-        guard var tempWord = title?.lowercased() else { return false }
-        
+        var tempWord = game.currentWord.lowercased()
+
         for letter in word {
             if let position = tempWord.firstIndex(of: letter) {
                 tempWord.remove(at: position)
@@ -92,9 +116,9 @@ class ViewController: UITableViewController {
         
         return true
     }
-    
+
     func isOriginal(word: String) -> Bool {
-        return !usedWords.description.localizedCaseInsensitiveContains(word) && word.lowercased() != title?.lowercased()
+        return !game.usedWords.description.localizedCaseInsensitiveContains(word) && word.lowercased() != title?.lowercased()
     }
     
     func isReal(word: String) -> Bool {
@@ -116,13 +140,13 @@ class ViewController: UITableViewController {
     // MARK: TableView Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return usedWords.count
+        return game.usedWords.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Word", for: indexPath)
         var cellConfig = UIListContentConfiguration.cell()
-        cellConfig.text = usedWords[indexPath.row]
+        cellConfig.text = game.usedWords[indexPath.row]
         cell.contentConfiguration = cellConfig
         return cell
     }

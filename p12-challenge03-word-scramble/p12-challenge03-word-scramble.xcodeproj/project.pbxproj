@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8315D1F22C05AD3C0020FA26 /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8315D1F12C05AD3C0020FA26 /* GameStatus.swift */; };
 		83A0146329EE721E00CB027C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0146229EE721E00CB027C /* AppDelegate.swift */; };
 		83A0146529EE721E00CB027C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0146429EE721E00CB027C /* SceneDelegate.swift */; };
 		83A0146729EE721E00CB027C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A0146629EE721E00CB027C /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8315D1F12C05AD3C0020FA26 /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 		83A0145F29EE721E00CB027C /* p12-challenge03-word-scramble.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p12-challenge03-word-scramble.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A0146229EE721E00CB027C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83A0146429EE721E00CB027C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				83A0146B29EE722100CB027C /* Assets.xcassets */,
 				83A0146D29EE722100CB027C /* LaunchScreen.storyboard */,
 				83A0147029EE722100CB027C /* Info.plist */,
+				8315D1F12C05AD3C0020FA26 /* GameStatus.swift */,
 			);
 			path = "p12-challenge03-word-scramble";
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83A0146729EE721E00CB027C /* ViewController.swift in Sources */,
+				8315D1F22C05AD3C0020FA26 /* GameStatus.swift in Sources */,
 				83A0146329EE721E00CB027C /* AppDelegate.swift in Sources */,
 				83A0146529EE721E00CB027C /* SceneDelegate.swift in Sources */,
 			);

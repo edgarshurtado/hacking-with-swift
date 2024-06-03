@@ -16,22 +16,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-Qr-pM5">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyD-Qr-pM5">
                                 <rect key="frame" x="0.0" y="64" width="393" height="470"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-TR-m6i">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f6X-TR-m6i">
                                         <rect key="frame" x="10" y="10" width="373" height="450"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="f6X-TR-m6i" firstAttribute="centerX" secondItem="gyD-Qr-pM5" secondAttribute="centerX" id="Td7-i9-0il"/>
+                                    <constraint firstItem="f6X-TR-m6i" firstAttribute="centerY" secondItem="gyD-Qr-pM5" secondAttribute="centerY" id="huK-d4-x7Q"/>
+                                    <constraint firstItem="f6X-TR-m6i" firstAttribute="leading" secondItem="gyD-Qr-pM5" secondAttribute="leading" constant="10" id="nps-uh-nDc"/>
+                                    <constraint firstItem="f6X-TR-m6i" firstAttribute="top" secondItem="gyD-Qr-pM5" secondAttribute="top" constant="10" id="s79-JE-O6H"/>
+                                </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvI-Nx-feY">
+                                <rect key="frame" x="16" y="562" width="72" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="MDX-Re-0nF"/>
+                                    <constraint firstAttribute="width" constant="72" id="Vqa-EM-5zX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="UFS-Oo-s8o" userLabel="Intensity Slider">
+                                <rect key="frame" x="96" y="558" width="262" height="30"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hta-UO-byw">
+                                <rect key="frame" x="16" y="605" width="122" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change filter"/>
+                                <connections>
+                                    <action selector="changeFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JbO-z1-f2P"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6DS-gC-SHz">
+                                <rect key="frame" x="300" y="605" width="61" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save"/>
+                                <connections>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dO1-qm-kB9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UFS-Oo-s8o" firstAttribute="top" secondItem="gyD-Qr-pM5" secondAttribute="bottom" constant="24" id="4Em-rh-snS"/>
+                            <constraint firstItem="Hta-UO-byw" firstAttribute="top" secondItem="IvI-Nx-feY" secondAttribute="bottom" constant="22" id="7Rv-jJ-FD5"/>
+                            <constraint firstItem="gyD-Qr-pM5" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="-39" id="7bg-d1-ykt"/>
+                            <constraint firstItem="gyD-Qr-pM5" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="907-A8-AtF"/>
+                            <constraint firstItem="UFS-Oo-s8o" firstAttribute="leading" secondItem="IvI-Nx-feY" secondAttribute="trailing" constant="10" id="H5f-He-V66"/>
+                            <constraint firstItem="IvI-Nx-feY" firstAttribute="centerY" secondItem="UFS-Oo-s8o" secondAttribute="centerY" id="LoN-dz-4Ui"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6DS-gC-SHz" secondAttribute="trailing" constant="32" id="SuM-gt-Md2"/>
+                            <constraint firstAttribute="bottom" secondItem="UFS-Oo-s8o" secondAttribute="bottom" constant="265" id="Tak-ke-RN3"/>
+                            <constraint firstItem="Hta-UO-byw" firstAttribute="top" secondItem="UFS-Oo-s8o" secondAttribute="bottom" constant="18" id="UFx-lp-B1W"/>
+                            <constraint firstItem="IvI-Nx-feY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="W7O-i0-eGt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UFS-Oo-s8o" secondAttribute="trailing" constant="37" id="XWk-bY-0Au"/>
+                            <constraint firstItem="gyD-Qr-pM5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="a44-km-tnP"/>
+                            <constraint firstItem="Hta-UO-byw" firstAttribute="baseline" secondItem="6DS-gC-SHz" secondAttribute="baseline" id="aHb-cL-ecA"/>
+                            <constraint firstItem="IvI-Nx-feY" firstAttribute="leading" secondItem="Hta-UO-byw" secondAttribute="leading" id="dYQ-i0-8Za"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GhX-Sx-DHf"/>
+                    <connections>
+                        <outlet property="imageView" destination="f6X-TR-m6i" id="mSJ-xI-mOE"/>
+                        <outlet property="intensity" destination="UFS-Oo-s8o" id="wqX-Vl-oae"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

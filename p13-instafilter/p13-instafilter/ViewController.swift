@@ -67,6 +67,32 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
 
+    func setFilter(action: UIAlertAction) {
+        guard
+            currentImage != nil,
+            let actionTitle = action.title
+        else { return }
+
+        currentFilter = CIFilter(name: actionTitle)
+        let beginImage = CIImage(image: currentImage)
+        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        applyProcessing()
+    }
+
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        var ac: UIAlertController
+        if let error = error {
+            ac = UIAlertController(title: "Save error", message: error.localizedDescription, preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+        } else {
+            ac = UIAlertController(title: "Saved!", message: "The image has been saved", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+        }
+
+        present(ac, animated: true)
+    }
+
+
     // MARK: IBActions
 
     @IBAction func changeFilter(_ sender: UIButton) {
@@ -82,19 +108,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(ac, animated: true)
     }
 
-    func setFilter(action: UIAlertAction) {
-        guard 
-            currentImage != nil,
-            let actionTitle = action.title
-        else { return }
-
-        currentFilter = CIFilter(name: actionTitle)
-        let beginImage = CIImage(image: currentImage)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        applyProcessing()
-    }
-
     @IBAction func save(_ sender: UIButton) {
+        guard let image = imageView.image else { return }
+
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
     @IBAction func intensityChanged(_ sender: UISlider) {

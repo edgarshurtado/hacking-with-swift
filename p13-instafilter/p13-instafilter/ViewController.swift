@@ -13,6 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet var intensity: UISlider!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var changeFilterButton: UIButton!
+    @IBOutlet var radius: UISlider!
     var currentImage: UIImage!
     var context: CIContext!
     var currentFilter: CIFilter!
@@ -52,7 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
         }
         if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(intensity.value * 200, forKey: kCIInputRadiusKey)
+            currentFilter.setValue(radius.value * 200, forKey: kCIInputRadiusKey)
         }
         if inputKeys.contains(kCIInputScaleKey) {
             currentFilter.setValue(intensity.value * 10, forKey: kCIInputScaleKey)
@@ -75,6 +76,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         else { return }
         currentFilter = CIFilter(name: actionTitle)
         changeFilterButton.setTitle(actionTitle, for: .normal)
+
+        let intensityInputKeys = [kCIInputIntensityKey, kCIInputScaleKey]
+        intensity.isEnabled = currentFilter.inputKeys.contains { intensityInputKeys.contains($0) }
+        radius.isEnabled = currentFilter.inputKeys.contains(kCIInputRadiusKey)
 
         guard currentImage != nil else { return }
 
@@ -127,6 +132,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
+    @IBAction func radiusChanged(_ sender: Any) {
+        applyProcessing()
+    }
+
     @IBAction func intensityChanged(_ sender: UISlider) {
         applyProcessing()
     }

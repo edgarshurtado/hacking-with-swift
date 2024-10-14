@@ -16,7 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		83DEAF372C07070F00B56A0E /* p13-instafilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p13-instafilter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83DEAF372C07070F00B56A0E /* p15b-instafilter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "p15b-instafilter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		83DEAF3A2C07070F00B56A0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83DEAF3C2C07070F00B56A0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		83DEAF3E2C07070F00B56A0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,7 +40,7 @@
 		83DEAF2E2C07070F00B56A0E = {
 			isa = PBXGroup;
 			children = (
-				83DEAF392C07070F00B56A0E /* p13-instafilter */,
+				83DEAF392C07070F00B56A0E /* p15b-instafilter */,
 				83DEAF382C07070F00B56A0E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,12 +48,12 @@
 		83DEAF382C07070F00B56A0E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				83DEAF372C07070F00B56A0E /* p13-instafilter.app */,
+				83DEAF372C07070F00B56A0E /* p15b-instafilter.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		83DEAF392C07070F00B56A0E /* p13-instafilter */ = {
+		83DEAF392C07070F00B56A0E /* p15b-instafilter */ = {
 			isa = PBXGroup;
 			children = (
 				83DEAF3A2C07070F00B56A0E /* AppDelegate.swift */,
@@ -64,15 +64,15 @@
 				83DEAF452C07071600B56A0E /* LaunchScreen.storyboard */,
 				83DEAF482C07071600B56A0E /* Info.plist */,
 			);
-			path = "p13-instafilter";
+			path = "p15b-instafilter";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		83DEAF362C07070F00B56A0E /* p13-instafilter */ = {
+		83DEAF362C07070F00B56A0E /* p15b-instafilter */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 83DEAF4B2C07071600B56A0E /* Build configuration list for PBXNativeTarget "p13-instafilter" */;
+			buildConfigurationList = 83DEAF4B2C07071600B56A0E /* Build configuration list for PBXNativeTarget "p15b-instafilter" */;
 			buildPhases = (
 				83DEAF332C07070F00B56A0E /* Sources */,
 				83DEAF342C07070F00B56A0E /* Frameworks */,
@@ -82,9 +82,9 @@
 			);
 			dependencies = (
 			);
-			name = "p13-instafilter";
+			name = "p15b-instafilter";
 			productName = "p13-instafilter";
-			productReference = 83DEAF372C07070F00B56A0E /* p13-instafilter.app */;
+			productReference = 83DEAF372C07070F00B56A0E /* p15b-instafilter.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +102,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83DEAF322C07070F00B56A0E /* Build configuration list for PBXProject "p13-instafilter" */;
+			buildConfigurationList = 83DEAF322C07070F00B56A0E /* Build configuration list for PBXProject "p15b-instafilter" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -115,7 +115,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				83DEAF362C07070F00B56A0E /* p13-instafilter */,
+				83DEAF362C07070F00B56A0E /* p15b-instafilter */,
 			);
 		};
 /* End PBXProject section */
@@ -293,7 +293,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "p13-instafilter/Info.plist";
+				INFOPLIST_FILE = "p15b-instafilter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -304,7 +304,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p13-instafilter";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p15b-instafilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,7 +320,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "p13-instafilter/Info.plist";
+				INFOPLIST_FILE = "p15b-instafilter/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -331,7 +331,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p13-instafilter";
+				PRODUCT_BUNDLE_IDENTIFIER = "es.edgarsh.p15b-instafilter";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -342,7 +342,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		83DEAF322C07070F00B56A0E /* Build configuration list for PBXProject "p13-instafilter" */ = {
+		83DEAF322C07070F00B56A0E /* Build configuration list for PBXProject "p15b-instafilter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83DEAF492C07071600B56A0E /* Debug */,
@@ -351,7 +351,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83DEAF4B2C07071600B56A0E /* Build configuration list for PBXNativeTarget "p13-instafilter" */ = {
+		83DEAF4B2C07071600B56A0E /* Build configuration list for PBXNativeTarget "p15b-instafilter" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83DEAF4C2C07071600B56A0E /* Debug */,
